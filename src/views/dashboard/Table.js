@@ -9,6 +9,9 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import Typography from '@mui/material/Typography'
 import TableContainer from '@mui/material/TableContainer'
+import DotsVertical from 'mdi-material-ui/DotsVertical'
+import IconButton from '@mui/material/IconButton'
+
 
 const rows = [
   {
@@ -132,6 +135,11 @@ const DashboardTable = () => {
                       '& .MuiChip-label': { fontWeight: 500 }
                     }}
                   />
+                </TableCell>
+                <TableCell>
+                  <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
+                    <DotsVertical />
+                  </IconButton>
                 </TableCell>
               </TableRow>
             ))}
