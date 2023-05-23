@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton'
 const rows = [
   {
     age: 27,
-    status: 'current',
+    status: 'pendiente',
     date: '09/27/2018',
     name: 'Sally Quinn',
     salary: '$19586.23',
@@ -27,7 +27,7 @@ const rows = [
     age: 61,
     date: '09/23/2016',
     salary: '$23896.35',
-    status: 'professional',
+    status: 'completada',
     name: 'Margaret Bowers',
     email: 'kocrevy0@thetimes.co.uk',
     designation: 'Nuclear Power Engineer'
@@ -36,7 +36,7 @@ const rows = [
     age: 59,
     date: '10/15/2017',
     name: 'Minnie Roy',
-    status: 'rejected',
+    status: 'cancelado',
     salary: '$18991.67',
     email: 'ediehn6@163.com',
     designation: 'Environmental Specialist'
@@ -44,7 +44,7 @@ const rows = [
   {
     age: 30,
     date: '06/12/2018',
-    status: 'resigned',
+    status: 'cancelado',
     salary: '$19252.12',
     name: 'Ralph Leonard',
     email: 'dfalloona@ifeng.com',
@@ -52,7 +52,7 @@ const rows = [
   },
   {
     age: 66,
-    status: 'applied',
+    status: 'completada',
     date: '03/24/2018',
     salary: '$13076.28',
     name: 'Annie Martin',
@@ -64,13 +64,13 @@ const rows = [
     date: '08/25/2017',
     salary: '$10909.52',
     name: 'Adeline Day',
-    status: 'professional',
+    status: 'completada',
     email: 'hnisius4@gnu.org',
     designation: 'Senior Cost Accountant'
   },
   {
     age: 61,
-    status: 'current',
+    status: 'pendiente',
     date: '06/01/2017',
     salary: '$17803.80',
     name: 'Lora Jackson',
@@ -82,18 +82,18 @@ const rows = [
     date: '12/03/2017',
     salary: '$12336.17',
     name: 'Rodney Sharp',
-    status: 'professional',
+    status: 'completada',
     designation: 'Cost Accountant',
     email: 'dcrossman3@google.co.jp'
   }
 ]
 
 const statusObj = {
-  applied: { color: 'info' },
-  rejected: { color: 'error' },
+  pendiente: { color: 'warning' },
+  cancelado: { color: 'error' },
   current: { color: 'primary' },
-  resigned: { color: 'warning' },
-  professional: { color: 'success' }
+  resigned: { color: 'info' },
+  completada: { color: 'success' }
 }
 
 const DashboardTable = () => {
@@ -103,11 +103,11 @@ const DashboardTable = () => {
         <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
+              <TableCell>Nombre</TableCell>
               <TableCell>Email</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell>Salary</TableCell>
-              <TableCell>Age</TableCell>
+              <TableCell>Academia</TableCell>
+              <TableCell>IDProfesor</TableCell>
+              <TableCell>Carrera</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
@@ -117,13 +117,13 @@ const DashboardTable = () => {
                 <TableCell sx={{ py: theme => `${theme.spacing(0.5)} !important` }}>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                     <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>{row.name}</Typography>
-                    <Typography variant='caption'>{row.designation}</Typography>
+                    {/* <Typography variant='caption'>{row.designation}</Typography> */}
                   </Box>
                 </TableCell>
                 <TableCell>{row.email}</TableCell>
-                <TableCell>{row.date}</TableCell>
-                <TableCell>{row.salary}</TableCell>
+                <TableCell>{row.designation}</TableCell>
                 <TableCell>{row.age}</TableCell>
+                <TableCell>{row.date}</TableCell>
                 <TableCell>
                   <Chip
                     label={row.status}
