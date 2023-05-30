@@ -7,6 +7,14 @@ module.exports = {
     esmExternals: false,
     jsconfigPaths: true // enables it for both jsconfig.json and tsconfig.json
   },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: '/',
+  //       destination: '/login',
+  //       permanent: true,
+  //     },
+  //   ]},
   webpack: config => {
     config.resolve.alias = {
       ...config.resolve.alias,

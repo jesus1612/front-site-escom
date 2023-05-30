@@ -14,6 +14,10 @@ import CardStatisticsVerticalComponent from 'src/@core/components/card-statistic
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 import TableCollapsible from 'src/views/tables/TableCollapsible.js'
+
+// Router
+import { useRouter } from 'next/router';
+
 // ** Demo Components Imports
 import Table from 'src/views/dashboard/Table'
 import Trophy from 'src/views/dashboard/Trophy'
@@ -23,7 +27,15 @@ import WeeklyOverview from 'src/views/dashboard/WeeklyOverview'
 import DepositWithdraw from 'src/views/dashboard/DepositWithdraw'
 import SalesByCountries from 'src/views/dashboard/SalesByCountries'
 
+
+
 const Dashboard = () => {
+  const router = useRouter();
+  let isAuth = false;
+  if(!isAuth) {
+    router.push('/login');
+  }
+
   return (
     <ApexChartWrapper>
       <Grid container spacing={6}>
